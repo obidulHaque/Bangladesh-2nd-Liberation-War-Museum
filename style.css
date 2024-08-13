@@ -1,0 +1,293 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#modal {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.animated-border {
+  width: 25vw;
+  height: 33vw;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5%;
+}
+
+.animated-border::after,
+.animated-border::before {
+  content: "";
+  position: absolute;
+  background-image: conic-gradient(
+    #c31e1e,
+    #e8840a,
+    #d4db11,
+    #2be107,
+    #13d1e3,
+    #025be9,
+    #310ef5,
+    #0bf2d3,
+    #fc0a0ae9
+  );
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(50px);
+  animation: rotate 7s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(odeg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* @property --rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+} */
+
+/* .animated-border::after {
+  animation-duration: reverse;
+} */
+
+#container {
+  position: absolute;
+  height: 98%;
+  width: 98%;
+  border-radius: 5%;
+  background-color: #1a3636;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#image {
+  height: 10vw;
+  width: 20vw;
+  /* background-color: red; */
+  position: absolute;
+  top: 3%;
+  left: 10%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5%;
+}
+#image img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#text {
+  position: absolute;
+  left: 10%;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(246, 9, 9);
+  font-size: 1.6vw;
+  margin-top: 1vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}
+
+#text p {
+  letter-spacing: -0.025em;
+  line-height: 1.4vw;
+  padding: 0;
+  margin: 0.6vw;
+}
+
+#text #of {
+  padding-left: 7vw;
+}
+
+#text #last {
+  padding-left: 5vw;
+}
+#text #first {
+  padding-left: 1vw;
+}
+
+#btn {
+  position: absolute;
+  bottom: 2vw;
+  left: 9vw;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5vw;
+  color: white;
+  padding: 0.3vw 0.9vw;
+  font-size: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#btn:hover {
+  background-color: #ff1a1a;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+.button-container {
+  display: none; /* Make sure this is set to 'block' or another display property when you want it to be visible */
+  width: 50vw;
+  max-width: 300px; /* Optional: set a max-width to limit the size on larger screens */
+  height: 30vw;
+  max-height: 180px; /* Optional: set a max-height to limit the size on larger screens */
+  background-color: #f5004f;
+  position: absolute; /* Use absolute positioning to center it properly */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center text inside the container */
+  padding: 10px; /* Add some padding for better appearance */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border-radius: 2vw;
+}
+.button-container p {
+  font-size: 3vw;
+}
+.styled-button {
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 2vw;
+  color: white;
+  padding: 1vw 1vw;
+  font-size: 2vw;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#controls-container {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  gap: 10px;
+}
+
+.control-button {
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 15%;
+  color: white;
+  font-size: 3vw;
+  padding: 1vw 4vw;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.control-button:hover {
+  background-color: #f5004f;
+}
+
+@media only screen and (max-width: 800px) {
+  .animated-border {
+    height: 50vw;
+    width: 40vw;
+    position: relative;
+  }
+  #container {
+    position: absolute;
+    height: 98%;
+    width: 98%;
+    background-color: #1a3636;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+  }
+  #image {
+    height: 15vw;
+    width: 30vw;
+    /* background-color: red; */
+    position: absolute;
+    top: 3%;
+    left: 12%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+  }
+  #image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  #text {
+    position: absolute;
+    left: 10%;
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(246, 9, 9);
+    font-size: 2.5vw;
+    padding-top: 2.5vw;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+  }
+
+  #text p {
+    letter-spacing: -0.025em;
+    line-height: 2vw;
+    padding: 0;
+    margin: 0.6vw;
+  }
+  #text #first {
+    padding-left: 2vw;
+  }
+  #text #of {
+    padding-left: 12vw;
+  }
+
+  #text #last {
+    padding-left: 9vw;
+  }
+
+  #btn {
+    position: absolute;
+    left: 14vw;
+    height: 4vw;
+    font-size: 2vw;
+    padding: 0.08vw 2vw;
+  }
+  /* .button-container {
+    display: block;
+  } */
+}
