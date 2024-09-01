@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import GUI from "lil-gui";
+// import GUI from "lil-gui";
 
-const gui = new GUI();
+// const gui = new GUI();
 
 const createPiantingImage = (scene, renderer) => {
   /// painting image map
@@ -24,10 +24,10 @@ const createPiantingImage = (scene, renderer) => {
     imageMesh.receiveShadow = true;
     imageMesh.position.set(...position);
     imageMesh.rotation.set(...rotation);
-    const folder = gui.addFolder(guiFolderName);
-    folder.add(imageMesh.position, "x");
-    folder.add(imageMesh.position, "y");
-    folder.add(imageMesh.position, "z");
+    // const folder = gui.addFolder(guiFolderName);
+    // folder.add(imageMesh.position, "x");
+    // folder.add(imageMesh.position, "y");
+    // folder.add(imageMesh.position, "z");
     scene.add(imageMesh);
   };
 
@@ -80,6 +80,13 @@ const createPiantingImage = (scene, renderer) => {
     [39.45, 14, -40],
     [0, -Math.PI / 2, 0],
     "d"
+  );
+  imageCrate(
+    "/protesters/IMG_20240815_164921.jpg",
+    [19, 8],
+    [-39.45, 14, 35],
+    [0, Math.PI / 2, 0],
+    "e"
   );
 };
 

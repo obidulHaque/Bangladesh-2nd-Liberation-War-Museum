@@ -14,14 +14,14 @@ const moveForward = document.querySelector("#move-forward");
 const moveBackward = document.querySelector("#move-backward");
 const screenWidth = window.innerWidth;
 
-let isMobile = screenWidth <= 800;
+let isMobile = screenWidth <= 950;
 
 btn.addEventListener("click", () => {
   modal.style.display = "none";
 
   if (isMobile) {
     rotationProps.style.display = "block";
-    controlsButton.style.display = "block";
+    controlsButton.style.display = "flex";
   } else {
     rotationProps.style.display = "none";
     controlsButton.style.display = "none";
